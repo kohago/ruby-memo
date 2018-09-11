@@ -1,4 +1,3 @@
-# autoSell
  ## <https://railsguides.jp/getting_started.html>
  ##set up
   * install ruby  
