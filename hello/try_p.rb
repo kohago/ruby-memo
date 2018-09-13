@@ -24,6 +24,8 @@ def test_p(obj)
   puts "---- finished!"
 end
 
+#p will remain ""
+test_p("a test")
 test_p(test_arr)
 test_p(test_hash)
 test_p(test_arr2)
