@@ -22,4 +22,73 @@ def opt_instance_variables
     puts f.instance_variable_get(:@hoge)
 end
 
-opt_instance_variables
+#opt_instance_variables
+
+class TestSuper
+    protected 
+    def protected_method
+        puts "I am protected!"
+    end
+
+    def call_super(str1,str2)
+        puts "I am function with parameters  in super class"
+    end
+
+    #Ruby doesn't really support overloading!!!!
+    #def call_super
+    #    puts "I am function withouts parameter "
+    #end
+
+    def anti_implicit_parameters
+        puts "I am a method without parameters"
+    end
+
+    private 
+    def private_method
+        puts "I am private"
+    end
+end
+
+module TestModule
+    def call_super(str1,str2)
+        puts "I am function with parameters  in module"
+    end
+end
+
+# protectd : can access from childs
+# < is inherit
+class TestChild < TestSuper
+
+    include TestModule
+
+    def call_protected
+        t = TestChild.new
+        t.protected_method
+        begin
+            t.private_method
+        rescue => exception
+            puts exception.message
+        end 
+    end
+
+    def call_super(str1,str2)
+        #super() =>will cause ArgumentError
+        super
+    end
+
+    def anti_implicit_parameters(str1, str2)
+        #super # =>will cause ArgumentError
+        super()
+    end
+end
+
+# Module is behind super class
+# Object > Kernel > BasicObject
+#puts TestChild.ancestors
+
+# TestChild.new.call_protected
+# super -> implicit parameters
+testChild = TestChild.new
+#testChild.call_super("1","2")
+
+testChild.anti_implicit_parameters("1","2")
