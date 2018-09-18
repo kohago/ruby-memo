@@ -1,7 +1,7 @@
-#Class: is the blueprint from which individual objects are created. 
+#Class: is the blueprint from which individual objects are created.
 #Classes in Ruby are first-class objects---each is an instance of class Class.
-#Module: is a collection of methods and constants. 
-#You can't make an instance of a module; the way you access the constants and methods inside it depends on it's definition; 
+#Module: is a collection of methods and constants.
+#You can't make an instance of a module; the way you access the constants and methods inside it depends on it's definition;
 #module methods and variables can be accessed like this Module.method or Module.CONSTANT .
 #if you want to access an instance method you should include the module to another class to use it.
 
@@ -24,8 +24,12 @@ end
 
 #opt_instance_variables
 
+class Test GrandParent
+  protectd
+end
+
 class TestSuper
-    protected 
+    protected
     def protected_method
         puts "I am protected!"
     end
@@ -43,7 +47,7 @@ class TestSuper
         puts "I am a method without parameters"
     end
 
-    private 
+    private
     def private_method
         puts "I am private"
     end
@@ -68,7 +72,7 @@ class TestChild < TestSuper
             t.private_method
         rescue => exception
             puts exception.message
-        end 
+        end
     end
 
     def call_super(str1,str2)

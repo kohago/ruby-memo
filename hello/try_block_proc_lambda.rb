@@ -11,6 +11,7 @@ yield_block { puts "I am a block be yielded!"}
 # proc is a object
 def be_proc(&block)
     block.call
+    puts block.class
 end
 be_proc { puts "I am converted to a proc by & then use call to be executed!"}
 
