@@ -6,7 +6,7 @@ STR2 = "aa"
 def show_obj(str)
   #output mothod name
   puts __method__
-  
+
   ## too many method,comment them
   #puts "methods:" + str.methods.to_s
   #puts "public methods:" + str.public_methods.to_s
@@ -25,7 +25,6 @@ end
 # what is hash ? what is object_id?
 # -> When objects‘ values are equal, their hashes are to be equal for quick lookup/search etc.
 # .equal() => object_id  .eql hash
-def test_hash_id(str1,str2)
   puts __method__
   puts "--id--:"
   puts str1.object_id

@@ -24,9 +24,18 @@ def test_p(obj)
   puts "---- finished!"
 end
 
+#puts will print the value!
+def test_p_symbol
+  t_symbol = %s(ruby)
+  p t_symbol
+  puts t_symbol
+end
+
 #p will remain ""
 test_p("a test")
 test_p(test_arr)
 test_p(test_hash)
 test_p(test_arr2)
 test_p(test_arr3)
+
+test_p_symbol
