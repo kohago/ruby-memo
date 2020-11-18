@@ -1,3 +1,6 @@
+## string will can not be changed
+# frozen_string_literal: true
+
 # upcase
 TEST_OBJ = Object.new
 STR1 = "aa"
