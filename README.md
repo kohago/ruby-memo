@@ -1,13 +1,25 @@
  ## <https://railsguides.jp/getting_started.html>
  ##set up
   * install ruby  
-     * <https://www.ruby-lang.org/ja/downloads/>
-     * ruby --version
+    * download install
+       * <https://www.ruby-lang.org/ja/downloads/>
+       * ruby --version
+    * rbenv install
+      * rbenv
+      * RUBY_CFLAGS="-w" rbenv install 3.0.1
+        * xcrun error
+          * xcode-select --install
+          * xcode-select -v 
+            * 2396
+            * xcrun,xcodebuild,cc などmacの開発ツールの塊
+            * 
+        * 
   * install sqllite   
      * <http://www.sqlite.org/download.html/>  
      * windows:
         * down dll and  sqlite-tools-win32 and put them together
         * windowssqilte3.exe --version 
+     * sqlite3 --version
   * install gem  
      * <https://rubygems.org/pages/download>  
             cd rubygem  

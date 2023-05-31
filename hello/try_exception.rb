@@ -11,7 +11,7 @@ class Hello
         begin
             1/0
         rescue ZeroDivisionError => exception
-            puts exception.class
+            puts exception.class, exception.message
         end
     end
 
@@ -29,7 +29,16 @@ end
 
 hello = Hello.new
 # there is no ()
-#hello.say
+hello.say
+hello.cause_error
+
+# when call func return exception,
+# have to around begin-rescue->end 
+begin
+    hello.do_raise
+rescue =>e
+    puts e.message 
+end
 
 #hello.cause_error
 def test_hello_raise
@@ -51,6 +60,7 @@ def raise_error
         puts exception.message
     end
 end
+
 raise_error
 
 #if set nothing after rescue,then it will only catch RuntimeError
@@ -82,3 +92,23 @@ def timeout()
     end
 end
 timeout()
+
+## child's child exception
+## catch exception in the most outside function
+def fun1
+    raise "exception!!"
+end
+
+def fun2
+    fun1
+end
+
+def fun3
+    fun2
+end
+
+begin
+    fun3
+rescue =>e
+    puts e
+end    
